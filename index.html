@@ -478,12 +478,7 @@
   }
 
   /* ── PROJECTS (localStorage persisted) ── */
-  const DEFAULTS = [
-    { id:1, title:'Gym Management System',   cat:'Web App',  desc:'Full-featured web app for gym memberships, attendance, fee management and trainer assignments.',                           tags:['PHP','MySQL','JavaScript','Bootstrap'],                url:'#', date:'2023-11' },
-    { id:2, title:'CI/CD Pipeline Setup',    cat:'DevOps',   desc:'Automated Jenkins pipeline — build, test, Dockerize and deploy to Kubernetes with Nginx ingress and rollback support.',  tags:['Jenkins','Docker','Kubernetes','Nginx','GitHub'],      url:'#', date:'2024-02' },
-    { id:3, title:'AWS Cloud Infrastructure',cat:'Cloud',    desc:'Designed multi-AZ architecture on AWS with EC2, RDS, S3 and autoscaling groups behind an Application Load Balancer.',   tags:['AWS','EC2','RDS','S3','ALB'],                          url:'#', date:'2024-05' }
-  ];
-
+   
   const getProjs  = () => { try { return JSON.parse(localStorage.getItem('sk_projs')) || DEFAULTS; } catch{ return DEFAULTS; } };
   const saveProjs = a  => localStorage.setItem('sk_projs', JSON.stringify(a));
 
