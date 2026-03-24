@@ -528,12 +528,12 @@
      Gmail compose window as a fallback (visitor's email client).
   ══════════════════════════════════════ */
   const EJS = {
-    publicKey:  S9kYDkYVkbTY3Z0pS,   // ← paste here
-    serviceId:  service_8nckbk7,   // ← paste here
-    templateId: template_fdeseab,  // ← paste here
+    publicKey:  "S9kYDkYVkbTY3Z0pS",   // ← paste here
+    serviceId:  "service_8nckbk7",   // ← paste here
+    templateId: "template_fdeseab",  // ← paste here
   };
   const MY_EMAIL = 'satyamkan17@gmail.com';
-  const ejsOn = EJS.publicKey !== S9kYDkYVkbTY3Z0pS;
+  const ejsOn = EJS.publicKey !== "S9kYDkYVkbTY3Z0pS";
   if (ejsOn) emailjs.init({ publicKey: EJS.publicKey });
 
   /* ── Enter key on any input (not textarea) triggers send ── */
