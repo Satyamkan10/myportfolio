@@ -5,31 +5,32 @@
   <title>Satyam Kannojia — DevOps Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
     :root {
-      --bg:      #040c18;
-      --bg2:     #060e1c;
-      --card:    #081222;
-      --card2:   #0a1628;
-      --cyan:    #00d4ff;
-      --green:   #00ff94;
-      --amber:   #ffb800;
-      --text:    #a8c0d8;
-      --hi:      #ddeeff;
-      --dim:     #3a5570;
-      --b1:      rgba(0,212,255,.10);
-      --b2:      rgba(0,212,255,.22);
-      --fd:      'Bebas Neue', sans-serif;
-      --fm:      'IBM Plex Mono', monospace;
-      --fs:      'DM Sans', sans-serif;
+      --bg:    #040c18;
+      --bg2:   #060e1c;
+      --card:  #081222;
+      --card2: #0a1628;
+      --cyan:  #00d4ff;
+      --green: #00ff94;
+      --amber: #ffb800;
+      --text:  #a8c0d8;
+      --hi:    #ddeeff;
+      --dim:   #3a5570;
+      --b1:    rgba(0,212,255,.10);
+      --b2:    rgba(0,212,255,.22);
+      --fd:    'Bebas Neue', sans-serif;
+      --fm:    'IBM Plex Mono', monospace;
+      --fs:    'DM Sans', sans-serif;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--text);font-family:var(--fs);font-size:15px;line-height:1.75;overflow-x:hidden}
     body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.5}
 
-    /* SCROLL BAR */
+    /* SCROLL PROGRESS */
     #sp{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--cyan),var(--green));z-index:1000;transition:width .1s}
 
     /* NAV */
@@ -40,7 +41,7 @@
     .nav-links a{font-family:var(--fm);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .2s}
     .nav-links a:hover{color:var(--cyan)}
 
-    /* SECTION */
+    /* SECTIONS */
     section{padding:96px 6%;position:relative;z-index:1}
     .eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--fm);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:.6rem}
     .eyebrow::before{content:'';width:36px;height:1px;background:var(--cyan)}
@@ -78,6 +79,8 @@
     .btn-c:hover{background:var(--green);transform:translateY(-2px)}
     .btn-o{padding:11px 26px;background:transparent;color:var(--cyan);font-family:var(--fm);font-size:11px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--cyan);cursor:pointer;text-decoration:none;transition:background .2s;display:inline-block}
     .btn-o:hover{background:rgba(0,212,255,.08)}
+    .btn-sms{padding:11px 26px;background:var(--green);color:var(--bg);font-family:var(--fm);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;text-decoration:none;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));transition:background .2s,transform .2s;display:inline-block}
+    .btn-sms:hover{background:var(--cyan);transform:translateY(-2px)}
 
     /* PIPELINE */
     .pipeline{display:flex;align-items:center;padding:14px 6%;background:var(--card);border-top:1px solid var(--b1);border-bottom:1px solid var(--b1);position:relative;z-index:1;overflow:hidden}
@@ -113,7 +116,7 @@
 
     /* SERVICES */
     #services{background:var(--bg2)}
-    .svcgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+    .svcgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
     .svc{background:var(--card);border:1px solid var(--b1);padding:2.2rem 1.8rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
     .svc::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--green));transition:width .4s}
     .svc:hover{border-color:var(--b2);transform:translateY(-5px)}
@@ -125,7 +128,6 @@
 
     /* PROJECTS */
     #projects{background:var(--bg)}
-    .ptoolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
     .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.4rem}
     .pcard{background:var(--card);border:1px solid var(--b1);overflow:hidden;transition:border-color .3s,transform .3s;display:flex;flex-direction:column}
     .pcard:hover{border-color:var(--b2);transform:translateY(-5px)}
@@ -140,53 +142,44 @@
     .pcdate{font-family:var(--fm);font-size:10px;color:var(--dim)}
     .pclink{font-family:var(--fm);font-size:10px;color:var(--cyan);text-decoration:none;letter-spacing:.08em;text-transform:uppercase}
     .pclink:hover{color:var(--green)}
-    .pcdel{background:none;border:none;color:var(--dim);cursor:pointer;font-size:13px;padding:2px 6px;transition:color .2s}
-    .pcdel:hover{color:#ff5f57}
-    .pcard-add{background:transparent;border:1px dashed var(--dim);display:flex;align-items:center;justify-content:center;min-height:200px;cursor:pointer;transition:border-color .3s}
-    .pcard-add:hover{border-color:var(--cyan)}
-    .pcard-add:hover .pai,.pcard-add:hover .pal{color:var(--cyan)}
-    .pai{font-size:2rem;color:var(--dim);margin-bottom:.6rem;text-align:center}
-    .pal{font-family:var(--fm);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
-
-    /* MODAL */
-    .modal-bg{display:none;position:fixed;inset:0;z-index:600;background:rgba(4,12,24,.85);backdrop-filter:blur(8px);align-items:center;justify-content:center}
-    .modal-bg.open{display:flex}
-    .modal{background:var(--card2);border:1px solid var(--b2);width:100%;max-width:520px;padding:2.5rem;position:relative;animation:popIn .25s ease}
-    @keyframes popIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
-    .mclose{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--dim);font-size:20px;cursor:pointer}
-    .mclose:hover{color:#ff5f57}
-    .modal h3{font-family:var(--fd);font-size:2rem;letter-spacing:.05em;color:#fff;margin-bottom:1.5rem}
-    .mrow{margin-bottom:1rem}
-    .mlbl{font-family:var(--fm);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:5px}
-    .minput{width:100%;background:var(--bg);border:1px solid var(--b1);color:var(--hi);font-family:var(--fm);font-size:13px;padding:9px 13px;outline:none;transition:border-color .2s}
-    .minput:focus{border-color:var(--cyan)}
-    textarea.minput{resize:vertical;min-height:90px}
-    .mactions{display:flex;gap:10px;margin-top:1.5rem}
 
     /* CONTACT */
     #contact{background:var(--bg2)}
     .cgrid{display:grid;grid-template-columns:1.2fr 1fr;gap:3.5rem;align-items:start}
     .cfwrap{background:var(--card);border:1px solid var(--b1);padding:2.2rem}
+    .cf-form-title{font-family:var(--fm);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:1.4rem;display:flex;align-items:center;gap:10px}
+    .cf-form-title::after{content:'';flex:1;height:1px;background:var(--b1)}
     .cfrow{margin-bottom:1.1rem}
     .cflbl{font-family:var(--fm);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);display:block;margin-bottom:5px}
     .cfinp{width:100%;background:var(--bg);border:1px solid var(--b1);color:var(--hi);font-family:var(--fm);font-size:13px;padding:10px 13px;outline:none;transition:border-color .2s}
     .cfinp:focus{border-color:var(--cyan)}
-    textarea.cfinp{resize:vertical;min-height:120px}
+    textarea.cfinp{resize:vertical;min-height:110px}
+    .cf-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:1.4rem}
+    .cf-actions .btn-sms,.cf-actions .btn-o{flex:1;text-align:center;padding:12px 16px}
     .cfstatus{font-family:var(--fm);font-size:12px;margin-top:.8rem;padding:8px 12px;display:none}
     .cfstatus.ok{background:rgba(0,255,148,.08);border:1px solid rgba(0,255,148,.3);color:var(--green);display:block}
     .cfstatus.err{background:rgba(255,95,87,.08);border:1px solid rgba(255,95,87,.3);color:#ff5f57;display:block}
-    .ejsnotice{font-family:var(--fm);font-size:11px;background:rgba(255,184,0,.06);border:1px solid rgba(255,184,0,.25);color:var(--amber);padding:10px 14px;margin-bottom:1.2rem;line-height:1.6;display:none}
-    .ejsnotice.show{display:block}
 
+    /* CONTACT INFO */
     .cilist{padding-top:.5rem}
     .ciitem{display:flex;gap:14px;align-items:flex-start;padding:1.1rem 0;border-bottom:1px solid var(--b1)}
     .ciitem:last-child{border-bottom:none}
-    .ciico{font-size:16px;color:var(--cyan);min-width:22px;text-align:center;margin-top:2px}
+    .ciico{font-size:15px;color:var(--cyan);min-width:22px;text-align:center;margin-top:3px}
     .cillbl{font-family:var(--fm);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);margin-bottom:2px}
     .cival{font-family:var(--fm);font-size:13px;color:var(--hi);word-break:break-all}
+    .cival a{color:var(--hi);text-decoration:none}
+    .cival a:hover{color:var(--cyan)}
+    .cf-actions{margin-top:1.4rem}
+    .cf-actions .btn-send{width:100%;display:block;text-align:center;padding:13px;font-size:12px;cursor:pointer;border:none;font-family:var(--fm);font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--cyan);color:var(--bg);clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));transition:background .2s,transform .2s}
+    .cf-actions .btn-send:hover{background:var(--green)}
+    .cf-actions .btn-send:disabled{opacity:.6;cursor:not-allowed;transform:none}
     .socrow{display:flex;gap:9px;margin-top:1.8rem}
-    .soc{width:36px;height:36px;border:1px solid var(--b1);display:flex;align-items:center;justify-content:center;color:var(--dim);text-decoration:none;font-family:var(--fm);font-size:11px;font-weight:600;transition:all .2s}
-    .soc:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(0,212,255,.07)}
+    .soc{width:40px;height:40px;border:1px solid var(--b1);border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--dim);text-decoration:none;font-size:16px;transition:all .25s}
+    .soc:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(0,212,255,.07);transform:translateY(-2px)}
+    .soc.fb:hover{border-color:#1877f2;color:#1877f2;background:rgba(24,119,242,.07)}
+    .soc.ig:hover{border-color:#e1306c;color:#e1306c;background:rgba(225,48,108,.07)}
+    .soc.li:hover{border-color:#0a66c2;color:#0a66c2;background:rgba(10,102,194,.07)}
+    .soc.gh:hover{border-color:#f0f6fc;color:#f0f6fc;background:rgba(240,246,252,.07)}
 
     /* FOOTER */
     footer{background:var(--bg);border-top:1px solid var(--b1);padding:1.6rem 6%;display:flex;align-items:center;justify-content:space-between;font-family:var(--fm);font-size:11px;color:var(--dim);position:relative;z-index:1}
@@ -194,12 +187,13 @@
 
     /* ANIMATIONS */
     @keyframes upIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes spin{to{transform:rotate(360deg)}}
     .reveal{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s ease}
     .reveal.vis{opacity:1;transform:translateY(0)}
 
     /* RESPONSIVE */
-    @media(max-width:1000px){.terminal{display:none}.agrid,.cgrid{grid-template-columns:1fr}.sgrid{grid-template-columns:1fr}.svcgrid{grid-template-columns:1fr 1fr}}
-    @media(max-width:620px){.nav-links{display:none}.svcgrid{grid-template-columns:1fr}.pipeline{display:none}h1.hh{font-size:clamp(3.5rem,16vw,5rem)}}
+    @media(max-width:1000px){.terminal{display:none}.agrid,.cgrid{grid-template-columns:1fr}.sgrid{grid-template-columns:1fr}}
+    @media(max-width:620px){.nav-links{display:none}.svcgrid{grid-template-columns:1fr}.pipeline{display:none}h1.hh{font-size:clamp(3.5rem,16vw,5rem)}.cf-actions{flex-direction:column}}
   </style>
 </head>
 <body>
@@ -226,7 +220,7 @@
   <div class="hi">
     <div class="htag">Open to opportunities</div>
     <h1 class="hh">Satyam<br><span class="c">Kannojia</span></h1>
-    <div class="hrole">DevOps Engineer<span class="sep">|</span>Cloud Infrastructure<span class="sep">|</span>CI/CD</div>
+    <div class="hrole">DevOps Engineer<span class="sep">|</span>Cloud Infrastructure<span class="sep">|</span>CI/CD Specialist</div>
     <p class="hdesc">Automating pipelines, orchestrating containers, and building resilient cloud infrastructure — from commit to production.</p>
     <div class="hctas">
       <a href="#projects" class="btn-c">View Projects</a>
@@ -272,13 +266,14 @@
     <div class="icard reveal">
       <div class="irow"><span class="ilbl">Name</span><span class="ival">Satyam Kannojia</span></div>
       <div class="irow"><span class="ilbl">Role</span><span class="ival">Associate DevOps Engineer</span></div>
+      <div class="irow"><span class="ilbl">Company</span><span class="ival">Dataman Computer PVT. LTD.</span></div>
       <div class="irow"><span class="ilbl">Education</span><span class="ival">MCA — Chandigarh University</span></div>
       <div class="irow"><span class="ilbl">Based In</span><span class="ival">Kanpur, India</span></div>
-      <div class="irow"><span class="ilbl">Email</span><span class="ival">satyamkan17@example.com</span></div>
+      <div class="irow"><span class="ilbl">Email</span><span class="ival">satyamkan17@gmail.com</span></div>
       <div class="irow"><span class="ilbl">Phone</span><span class="ival">+91-9140307219</span></div>
     </div>
     <div class="aprosa reveal">
-      <p>I'm <span class="hl">Satyam Kannojia</span>, working as Associate DevOps Engineer at <span class="hl">Dataman Computer PVT. LTD.</span>.</p>
+      <p>I'm <span class="hl">Satyam Kannojia</span>, working as Associate DevOps Engineer at <span class="hl">Dataman Computer PVT. LTD.</span>, based in Kanpur.</p>
       <p>I specialize in building automated CI/CD pipelines, containerizing applications with <span class="hl">Docker &amp; Kubernetes</span>, and managing cloud infrastructure on <span class="hl">AWS and Azure</span>.</p>
       <p>I enjoy turning manual processes into reliable, repeatable workflows — bridging development and operations using <span class="hl">Jenkins, Nginx, and Git</span>.</p>
       <p>Outside tech: cricket 🏏, music, and always learning something new.</p>
@@ -302,32 +297,14 @@
         <span class="tag hot">Azure</span>
         <span class="tag hot">Nginx</span>
         <span class="tag hot">Git / GitHub</span>
+        <span class="tag hot">Linux / Bash</span>
       </div>
     </div>
     <div class="sg reveal">
-      <div class="sgtitle">Web &amp; Backend</div>
+      <div class="sgtitle">Languages</div>
       <div class="tags">
         <span class="tag">JavaScript</span>
-        <span class="tag">React.js</span>
-        <span class="tag">Node.js</span>
-        <span class="tag">Python</span>
-        <span class="tag">Java</span>
         <span class="tag">C++</span>
-        <span class="tag">HTML5 / CSS3</span>
-      </div>
-    </div>
-    <div class="sg reveal">
-      <div class="sgtitle">Databases</div>
-      <div class="tags">
-        <span class="tag">MySQL</span>
-        <span class="tag">MongoDB</span>
-      </div>
-    </div>
-    <div class="sg reveal">
-      <div class="sgtitle">Other</div>
-      <div class="tags">
-        <span class="tag">Linux / Bash</span>
-        <span class="tag">Agile / Scrum</span>
       </div>
     </div>
   </div>
@@ -338,72 +315,189 @@
   <div class="eyebrow">03 — Services</div>
   <h2 class="sh">What I<br><span>offer</span></h2>
   <div class="svcgrid">
-    <div class="svc reveal"><span class="svcnum">01</span><span class="svcicon">☁️</span><div class="svctitle">Cloud Infrastructure</div><p class="svcdesc">Design and manage scalable cloud environments on AWS and Azure — VPCs, autoscaling, IAM, cost optimization.</p></div>
-    <div class="svc reveal"><span class="svcnum">02</span><span class="svcicon">🔁</span><div class="svctitle">CI/CD Pipelines</div><p class="svcdesc">Automated build, test, and deploy pipelines via Jenkins and GitHub Actions for fast, reliable releases.</p></div>
-    <div class="svc reveal"><span class="svcnum">03</span><span class="svcicon">🐳</span><div class="svctitle">Containerization</div><p class="svcdesc">Dockerize applications and orchestrate at scale with Kubernetes for resilience and zero-downtime deploys.</p></div>
-    <div class="svc reveal"><span class="svcnum">04</span><span class="svcicon">⚙️</span><div class="svctitle">Server &amp; Nginx Config</div><p class="svcdesc">Configure Nginx as reverse proxy, load balancer, and SSL terminator — performance-tuned for production.</p></div>
-    <!-- <div class="svc reveal"><span class="svcnum">05</span><span class="svcicon">🌐</span><div class="svctitle">Web Development</div><p class="svcdesc">Full-stack web applications built to be production-ready, deployed via automated DevOps pipelines.</p></div> -->
-    <!-- <div class="svc reveal"><span class="svcnum">06</span><span class="svcicon">📱</span><div class="svctitle">Android Development</div><p class="svcdesc">Native Android apps with clean architecture, smooth UX, and CI integration for automated builds.</p></div> -->
+    <div class="svc reveal">
+      <span class="svcnum">01</span>
+      <span class="svcicon">☁️</span>
+      <div class="svctitle">Cloud Infrastructure</div>
+      <p class="svcdesc">Design and manage scalable cloud environments on AWS and Azure — VPCs, autoscaling, IAM, cost optimization.</p>
+    </div>
+    <div class="svc reveal">
+      <span class="svcnum">02</span>
+      <span class="svcicon">🔁</span>
+      <div class="svctitle">CI/CD Pipelines</div>
+      <p class="svcdesc">Automated build, test, and deploy pipelines via Jenkins and GitHub Actions for fast, reliable releases.</p>
+    </div>
+    <div class="svc reveal">
+      <span class="svcnum">03</span>
+      <span class="svcicon">🐳</span>
+      <div class="svctitle">Containerization</div>
+      <p class="svcdesc">Dockerize applications and orchestrate at scale with Kubernetes for resilience and zero-downtime deploys.</p>
+    </div>
+    <div class="svc reveal">
+      <span class="svcnum">04</span>
+      <span class="svcicon">⚙️</span>
+      <div class="svctitle">Server &amp; Nginx Config</div>
+      <p class="svcdesc">Configure Nginx as reverse proxy, load balancer, and SSL terminator — performance-tuned for production.</p>
+    </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- ══════════════════════════════════════
+  PROJECTS — Add your projects below by copy-pasting a .pcard block.
+  Each card has: title, badge, description, tags, date, and optional link.
+  To add a new project: duplicate a .pcard div and update the content.
+══════════════════════════════════════ -->
 <section id="projects">
   <div class="eyebrow">04 — Projects</div>
-  <div class="ptoolbar">
-    <h2 class="sh" style="margin-bottom:0">DevOps<br><span>Projects</span></h2>
-    <!-- <button class="btn-c" onclick="openModal()">+ Add Project</button> -->
-  </div>
-  <div class="pgrid" id="projGrid"></div>
-</section>
+  <h2 class="sh">DevOps<br><span>Projects</span></h2>
+  <div class="pgrid">
 
-<!-- ADD PROJECT MODAL -->
-<div class="modal-bg" id="modalBg">
-  <!-- <div class="modal">
-    <button class="mclose" onclick="closeModal()">✕</button>
-    <h3>Add Project</h3>
-    <div class="mrow"><label class="mlbl">Project Title *</label><input class="minput" id="m-title" placeholder="K8s Monitoring Stack"></div>
-    <div class="mrow"><label class="mlbl">Category</label><input class="minput" id="m-cat" placeholder="DevOps / Cloud / CI-CD"></div>
-    <div class="mrow"><label class="mlbl">Description *</label><textarea class="minput" id="m-desc" placeholder="Brief description of the project..."></textarea></div>
-    <div class="mrow"><label class="mlbl">Tech Stack (comma-separated)</label><input class="minput" id="m-tags" placeholder="Docker, Kubernetes, Prometheus, Grafana"></div>
-    <div class="mrow"><label class="mlbl">GitHub / Live URL</label><input class="minput" id="m-url" placeholder="https://github.com/..."></div>
-    <div class="mrow"><label class="mlbl">Date</label><input class="minput" id="m-date" type="month"></div>
-    <div class="mactions">
-      <button class="btn-c" onclick="saveProject()" style="flex:1;text-align:center">Save Project</button>
-      <button class="btn-o" onclick="closeModal()">Cancel</button>
+    <!-- PROJECT 1 -->
+    <div class="pcard reveal">
+      <div class="pchead">
+        <div class="pctitle">CI/CD Pipeline Setup</div>
+        <div class="pcbadge">DevOps</div>
+      </div>
+      <div class="pcbody">
+        <p class="pcdesc">Automated Jenkins pipeline — build, test, Dockerize and deploy to Kubernetes with Nginx ingress and rollback support.</p>
+        <div class="pctags">
+          <span class="pctag">Jenkins</span>
+          <span class="pctag">Docker</span>
+          <span class="pctag">Kubernetes</span>
+          <span class="pctag">Nginx</span>
+          <span class="pctag">GitHub</span>
+        </div>
+      </div>
+      <div class="pcfoot">
+        <span class="pcdate">Feb 2024</span>
+        <!-- <a class="pclink" href="YOUR_LINK_HERE" target="_blank">View →</a> -->
+      </div>
     </div>
-  </div> -->
-</div>
+
+    <!-- PROJECT 2 -->
+    <div class="pcard reveal">
+      <div class="pchead">
+        <div class="pctitle">AWS Cloud Infrastructure</div>
+        <div class="pcbadge">Cloud</div>
+      </div>
+      <div class="pcbody">
+        <p class="pcdesc">Designed multi-AZ architecture on AWS with EC2, RDS, S3 and autoscaling groups behind an Application Load Balancer.</p>
+        <div class="pctags">
+          <span class="pctag">AWS</span>
+          <span class="pctag">EC2</span>
+          <span class="pctag">RDS</span>
+          <span class="pctag">S3</span>
+          <span class="pctag">ALB</span>
+        </div>
+      </div>
+      <div class="pcfoot">
+        <span class="pcdate">May 2024</span>
+        <!-- <a class="pclink" href="YOUR_LINK_HERE" target="_blank">View →</a> -->
+      </div>
+    </div>
+
+    <!-- ── COPY THIS BLOCK TO ADD A NEW PROJECT ──
+    <div class="pcard reveal">
+      <div class="pchead">
+        <div class="pctitle">Project Title Here</div>
+        <div class="pcbadge">DevOps</div>
+      </div>
+      <div class="pcbody">
+        <p class="pcdesc">Short description of the project.</p>
+        <div class="pctags">
+          <span class="pctag">Tool1</span>
+          <span class="pctag">Tool2</span>
+        </div>
+      </div>
+      <div class="pcfoot">
+        <span class="pcdate">Mon YYYY</span>
+        <a class="pclink" href="https://github.com/..." target="_blank">View →</a>
+      </div>
+    </div>
+    ── END COPY BLOCK ── -->
+
+  </div>
+</section>
 
 <!-- CONTACT -->
 <section id="contact">
   <div class="eyebrow">05 — Contact</div>
   <h2 class="sh">Get in<br><span>touch</span></h2>
   <div class="cgrid">
+
+    <!-- CONTACT FORM -->
     <div class="cfwrap reveal">
-      <div class="ejsnotice show" id="ejsNotice">
-        ⚠️ <strong>One-time setup:</strong> To enable email sending, open this HTML file, scroll to the bottom, find <code>EMAILJS_CONFIG</code> and replace the 3 placeholder values with your EmailJS keys. Sign up free at <strong>emailjs.com</strong> → create a Service + Template → copy your keys. Until then, clicking Send will open your mail client as a fallback.
-      </div>
-      <form id="contactForm" onsubmit="sendMail(event)">
-        <div class="cfrow"><label class="cflbl">Your Name</label><input class="cfinp" id="cf-name" placeholder="John Doe" required></div>
-        <div class="cfrow"><label class="cflbl">Email Address</label><input class="cfinp" type="email" id="cf-email" placeholder="john@example.com" required></div>
-        <div class="cfrow"><label class="cflbl">Subject</label><input class="cfinp" id="cf-subject" placeholder="Project Inquiry"></div>
-        <div class="cfrow"><label class="cflbl">Message</label><textarea class="cfinp" id="cf-msg" placeholder="Tell me about your project..." required></textarea></div>
-        <button type="submit" class="btn-c" id="cf-btn" style="width:100%;display:block;text-align:center;padding:13px">Send Message</button>
-        <div class="cf-status" id="cf-status"></div>
+      <div class="cf-form-title">Send a message</div>
+      <form id="contactForm" onsubmit="return false;">
+        <div class="cfrow">
+          <label class="cflbl">Your Name</label>
+          <input class="cfinp" id="cf-name" placeholder="John Doe" required>
+        </div>
+        <div class="cfrow">
+          <label class="cflbl">Email Address</label>
+          <input class="cfinp" type="email" id="cf-email" placeholder="john@example.com" required>
+        </div>
+        <div class="cfrow">
+          <label class="cflbl">Subject</label>
+          <input class="cfinp" id="cf-subject" placeholder="Project Inquiry">
+        </div>
+        <div class="cfrow">
+          <label class="cflbl">Message</label>
+          <textarea class="cfinp" id="cf-msg" placeholder="Tell me about your project or opportunity..." required></textarea>
+        </div>
+        <!-- Single send button — delivers message directly to Satyam's email -->
+        <div class="cf-actions">
+          <button type="button" class="btn-send" id="cf-btn" onclick="sendMessage()">
+            <svg id="btn-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px;vertical-align:middle"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>Send Message
+          </button>
+        </div>
+        <div class="cfstatus" id="cf-status"></div>
       </form>
     </div>
+
+    <!-- CONTACT INFO -->
     <div class="cilist reveal">
-      <div class="ciitem"><div class="ciico">📍</div><div><div class="cillbl">Address</div><div class="cival">599 A-B Tiwaripur Bagia, JK-1, Kanpur — 208010</div></div></div>
-      <div class="ciitem"><div class="ciico">📞</div><div><div class="cillbl">Phone</div><div class="cival">+91-9140307219</div></div></div>
-      <div class="ciitem"><div class="ciico">✉️</div><div><div class="cillbl">Email</div><div class="cival">satyamkan17@example.com</div></div></div>
+      <div class="ciitem">
+        <div class="ciico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+        <div>
+          <div class="cillbl">Address</div>
+          <div class="cival">599 A-B Tiwaripur Bagia, JK-1, Kanpur — 208010</div>
+        </div>
+      </div>
+      <div class="ciitem">
+        <div class="ciico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+        <div>
+          <div class="cillbl">Phone / WhatsApp</div>
+          <div class="cival"><a href="tel:+919140307219">+91-9140307219</a></div>
+        </div>
+      </div>
+      <div class="ciitem">
+        <div class="ciico"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+        <div>
+          <div class="cillbl">Email</div>
+          <div class="cival"><a href="mailto:satyamkan17@gmail.com">satyamkan17@gmail.com</a></div>
+        </div>
+      </div>
       <div class="socrow">
-        <a class="soc" href="https://www.facebook.com/satyam.kanojia.22">Fb</a>
-        <a class="soc" href="https://www.instagram.com/lord_freakin10">Ig</a>
-        <a class="soc" href="https://www.linkedin.com/in/satyam-kannojia-2aa03824b/">in</a>
-        <a class="soc" href="https://github.com/Satyamkan10">GH</a>
+        <!-- Facebook -->
+        <a class="soc fb" href="https://www.facebook.com/satyam.kanojia.22" target="_blank" title="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <!-- Instagram -->
+        <a class="soc ig" href="https://www.instagram.com/lord_freakin10" target="_blank" title="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <!-- LinkedIn -->
+        <a class="soc li" href="https://www.linkedin.com/in/satyam-kannojia-2aa03824b/" target="_blank" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <!-- GitHub -->
+        <a class="soc gh" href="https://github.com/Satyamkan10" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -413,138 +507,105 @@
   <span>Built with ❤️ &amp; Linux</span>
 </footer>
 
-<!-- ══════════════════════════════════════
-  EMAILJS CONFIG
-  Steps:
-  1. Go to https://emailjs.com → free signup
-  2. Add a Service (Gmail/Outlook) → copy "Service ID"
-  3. Create Email Template with variables:
-     {{from_name}}  {{from_email}}  {{subject}}  {{message}}
-     → copy "Template ID"
-  4. Account → API Keys → copy "Public Key"
-  5. Paste all 3 below, then delete the ejsNotice div above
-══════════════════════════════════════ -->
 <script>
-  const EMAILJS_CONFIG = {
-    publicKey:  'YOUR_PUBLIC_KEY',
-    serviceId:  'YOUR_SERVICE_ID',
-    templateId: 'YOUR_TEMPLATE_ID',
-    myEmail:    'satyamkan17@gmail.com.com'
-  };
+  /* ══════════════════════════════════════
+     HOW MESSAGES REACH SATYAM
+     ─────────────────────────────────────
+     Step 1 → Go to https://emailjs.com  (free, 200 emails/month)
+     Step 2 → Add an Email Service (connect your Gmail)
+     Step 3 → Create an Email Template:
+              Subject: New message from {{from_name}} — {{subject}}
+              Body:
+                Name:    {{from_name}}
+                Email:   {{from_email}}
+                Subject: {{subject}}
 
-  const ejsReady = EMAILJS_CONFIG.publicKey !== 'YOUR_PUBLIC_KEY';
-  if (ejsReady) {
-    emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
-    document.getElementById('ejsNotice').classList.remove('show');
+                {{message}}
+     Step 4 → Account → API Keys → copy Public Key
+     Step 5 → Replace the 3 values below with your own keys
+     ─────────────────────────────────────
+     Until configured, clicking Send Message opens your
+     Gmail compose window as a fallback (visitor's email client).
+  ══════════════════════════════════════ */
+  const EJS = {
+    publicKey:  'YOUR_PUBLIC_KEY',   // ← paste here
+    serviceId:  'YOUR_SERVICE_ID',   // ← paste here
+    templateId: 'YOUR_TEMPLATE_ID',  // ← paste here
+  };
+  const MY_EMAIL = 'satyamkan17@gmail.com';
+  const ejsOn = EJS.publicKey !== 'YOUR_PUBLIC_KEY';
+  if (ejsOn) emailjs.init({ publicKey: EJS.publicKey });
+
+  /* ── Enter key on any input (not textarea) triggers send ── */
+  document.getElementById('contactForm').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+
+  function getFormData() {
+    return {
+      name:    document.getElementById('cf-name').value.trim(),
+      email:   document.getElementById('cf-email').value.trim(),
+      subject: document.getElementById('cf-subject').value.trim() || 'Portfolio Inquiry',
+      msg:     document.getElementById('cf-msg').value.trim()
+    };
   }
 
-  /* ── SEND MAIL ── */
-  async function sendMail(e) {
-    e.preventDefault();
-    const btn    = document.getElementById('cf-btn');
-    const status = document.getElementById('cf-status');
-    const name   = document.getElementById('cf-name').value;
-    const email  = document.getElementById('cf-email').value;
-    const subj   = document.getElementById('cf-subject').value || 'Portfolio Inquiry';
-    const msg    = document.getElementById('cf-msg').value;
+  function validate(f) {
+    if (!f.name)  { showStatus('err', '✕ Please enter your name.');    return false; }
+    if (!f.email) { showStatus('err', '✕ Please enter your email.');   return false; }
+    if (!f.msg)   { showStatus('err', '✕ Please write a message.');    return false; }
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email);
+    if (!emailOk) { showStatus('err', '✕ Please enter a valid email address.'); return false; }
+    return true;
+  }
 
-    status.className = 'cf-status';
-    status.textContent = '';
+  async function sendMessage() {
+    const f = getFormData();
+    if (!validate(f)) return;
 
-    if (!ejsReady) {
-      // Fallback: open mail client
-      window.location.href = `mailto:${EMAILJS_CONFIG.myEmail}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${msg}`)}`;
+    const btn = document.getElementById('cf-btn');
+    btn.disabled = true;
+    btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:8px;vertical-align:middle;animation:spin .8s linear infinite"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>Sending...';
+
+    const RESTORE_BTN = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px;vertical-align:middle"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>Send Message';
+
+    /* ── EmailJS path: message lands in Satyam's inbox ── */
+    if (ejsOn) {
+      try {
+        await emailjs.send(EJS.serviceId, EJS.templateId, {
+          from_name:  f.name,
+          from_email: f.email,
+          subject:    f.subject,
+          message:    f.msg
+        });
+        showStatus('ok', '✓ Message sent! Satyam will reply soon.');
+        document.getElementById('contactForm').reset();
+      } catch(err) {
+        showStatus('err', '✕ Failed to send. Please email directly: satyamkan17@gmail.com');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = RESTORE_BTN;
+      }
       return;
     }
 
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    try {
-      await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, {
-        from_name: name, from_email: email, subject: subj, message: msg
-      });
-      status.textContent = '✓ Message sent! I\'ll reply soon.';
-      status.className = 'cf-status ok';
-      document.getElementById('contactForm').reset();
-    } catch {
-      status.textContent = '✕ Send failed. Please email me directly.';
-      status.className = 'cf-status err';
-    } finally {
-      btn.textContent = 'Send Message';
-      btn.disabled = false;
-    }
+    /* ── Fallback: open Gmail compose in a new tab ── */
+    btn.disabled = false;
+    btn.innerHTML = RESTORE_BTN;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(MY_EMAIL)}&su=${encodeURIComponent(`[Portfolio] ${f.subject} — from ${f.name}`)}&body=${encodeURIComponent(`Name:    ${f.name}\nEmail:   ${f.email}\nSubject: ${f.subject}\n\n${f.msg}`)}`;
+    window.open(gmailUrl, '_blank');
+    showStatus('ok', '✓ Gmail opened in a new tab — hit Send there to deliver your message.');
   }
 
-  /* ── PROJECTS (localStorage persisted) ── */
-   
-  const getProjs  = () => { try { return JSON.parse(localStorage.getItem('sk_projs')) || DEFAULTS; } catch{ return DEFAULTS; } };
-  const saveProjs = a  => localStorage.setItem('sk_projs', JSON.stringify(a));
-
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  const fmtDate = d => { if(!d) return ''; const [y,m]=d.split('-'); return `${months[+m-1]} ${y}`; };
-
-  function renderProjects() {
-    const grid = document.getElementById('projGrid');
-    grid.innerHTML = '';
-    getProjs().forEach(p => {
-      const d = document.createElement('div');
-      d.className = 'pcard reveal';
-      d.innerHTML = `
-        <div class="pchead"><div class="pctitle">${p.title}</div><div class="pcbadge">${p.cat||'DevOps'}</div></div>
-        <div class="pcbody">
-          <p class="pcdesc">${p.desc}</p>
-          <div class="pctags">${p.tags.map(t=>`<span class="pctag">${t}</span>`).join('')}</div>
-        </div>
-        <div class="pcfoot">
-          <span class="pcdate">${fmtDate(p.date)}</span>
-          <div style="display:flex;align-items:center;gap:12px">
-            ${p.url&&p.url!='#'?`<a class="pclink" href="${p.url}" target="_blank">View →</a>`:''}
-            <button class="pcdel" onclick="delProj(${p.id})">🗑</button>
-          </div>
-        </div>`;
-      grid.appendChild(d);
-    });
-    const add = document.createElement('div');
-    add.className = 'pcard-add';
-    add.onclick = openModal;
-    add.innerHTML = `<div style="text-align:center"><div class="pai">+</div><div class="pal">Add New Project</div></div>`;
-    grid.appendChild(add);
-    observeReveal();
+  function showStatus(type, msg) {
+    const s = document.getElementById('cf-status');
+    s.textContent = msg;
+    s.className = 'cfstatus ' + type;
+    if (type === 'ok') setTimeout(() => { s.className = 'cfstatus'; }, 6000);
   }
-
-  function delProj(id) {
-    if (!confirm('Remove this project?')) return;
-    saveProjs(getProjs().filter(p => p.id !== id));
-    renderProjects();
-  }
-
-  function openModal()  { document.getElementById('modalBg').classList.add('open'); document.getElementById('m-title').focus(); }
-  function closeModal() {
-    document.getElementById('modalBg').classList.remove('open');
-    ['m-title','m-cat','m-desc','m-tags','m-url','m-date'].forEach(id => document.getElementById(id).value = '');
-  }
-
-  function saveProject() {
-    const title = document.getElementById('m-title').value.trim();
-    const desc  = document.getElementById('m-desc').value.trim();
-    if (!title || !desc) { alert('Title and Description are required.'); return; }
-    const tags = document.getElementById('m-tags').value.split(',').map(t=>t.trim()).filter(Boolean);
-    const p = {
-      id:    Date.now(),
-      title,
-      cat:   document.getElementById('m-cat').value.trim() || 'DevOps',
-      desc,
-      tags,
-      url:   document.getElementById('m-url').value.trim() || '#',
-      date:  document.getElementById('m-date').value
-    };
-    const all = getProjs(); all.push(p); saveProjs(all);
-    closeModal(); renderProjects();
-  }
-
-  document.getElementById('modalBg').addEventListener('click', e => {
-    if (e.target === document.getElementById('modalBg')) closeModal();
-  });
 
   /* ── SCROLL PROGRESS ── */
   window.addEventListener('scroll', () => {
@@ -553,19 +614,19 @@
   });
 
   /* ── REVEAL ON SCROLL ── */
-  const ro = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('vis'); }), { threshold:.08 });
-  function observeReveal() { document.querySelectorAll('.reveal:not(.vis)').forEach(el => ro.observe(el)); }
+  const ro = new IntersectionObserver(
+    e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('vis'); }),
+    { threshold: .08 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
   /* ── SMOOTH NAV ── */
   document.querySelectorAll('a[href^="#"]').forEach(a =>
     a.addEventListener('click', e => {
       const t = document.querySelector(a.getAttribute('href'));
-      if (t) { e.preventDefault(); t.scrollIntoView({ behavior:'smooth' }); }
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
     })
   );
-
-  renderProjects();
-  observeReveal();
 </script>
 </body>
 </html>
