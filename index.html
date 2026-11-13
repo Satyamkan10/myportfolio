@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Satyam Kannojia — DevOps Engineer</title>
+  <meta name="description" content="Satyam Kannojia — DevOps Engineer. CI/CD, Docker, Zabbix/Prometheus/Grafana monitoring, Kafka CDC, AWS &amp; Azure.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -143,6 +144,26 @@
     .pclink{font-family:var(--fm);font-size:10px;color:var(--cyan);text-decoration:none;letter-spacing:.08em;text-transform:uppercase}
     .pclink:hover{color:var(--green)}
 
+    /* STATS */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--b1);border:1px solid var(--b1);margin-top:2.4rem}
+    .stat{background:var(--card);padding:1.2rem 1rem;text-align:center}
+    .statn{font-family:var(--fd);font-size:2.3rem;color:var(--cyan);line-height:1;letter-spacing:.03em}
+    .statl{font-family:var(--fm);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:6px}
+
+    /* EXPERIENCE */
+    #experience{background:var(--bg)}
+    .xcard{background:var(--card);border:1px solid var(--b1);padding:2.2rem;position:relative}
+    .xcard::before{content:'';position:absolute;top:-1px;left:20px;width:60px;height:2px;background:var(--green)}
+    .xhead{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:1.6rem}
+    .xrole{font-family:var(--fd);font-size:1.7rem;letter-spacing:.04em;color:#fff;line-height:1.1}
+    .xco{font-family:var(--fm);font-size:12px;color:var(--cyan);margin-top:4px}
+    .xdate{font-family:var(--fm);font-size:11px;letter-spacing:.1em;color:var(--green);border:1px solid rgba(0,255,148,.28);padding:3px 10px}
+    .xgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem 2.2rem}
+    .xi{border-left:2px solid var(--b2);padding-left:1rem}
+    .xit{font-family:var(--fm);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);margin-bottom:4px}
+    .xid{font-size:13.5px;color:var(--text);line-height:1.7}
+    .xid b{color:var(--hi);font-weight:500}
+
     /* CONTACT */
     #contact{background:var(--bg2)}
     .cgrid{display:grid;grid-template-columns:1.2fr 1fr;gap:3.5rem;align-items:start}
@@ -192,8 +213,8 @@
     .reveal.vis{opacity:1;transform:translateY(0)}
 
     /* RESPONSIVE */
-    @media(max-width:1000px){.terminal{display:none}.agrid,.cgrid{grid-template-columns:1fr}.sgrid{grid-template-columns:1fr}}
-    @media(max-width:620px){.nav-links{display:none}.svcgrid{grid-template-columns:1fr}.pipeline{display:none}h1.hh{font-size:clamp(3.5rem,16vw,5rem)}.cf-actions{flex-direction:column}}
+    @media(max-width:1000px){.terminal{display:none}.agrid,.cgrid{grid-template-columns:1fr}.sgrid{grid-template-columns:1fr}.xgrid{grid-template-columns:1fr}}
+    @media(max-width:620px){.nav-links{display:none}.svcgrid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.pipeline{display:none}h1.hh{font-size:clamp(3.5rem,16vw,5rem)}.cf-actions{flex-direction:column}}
   </style>
 </head>
 <body>
@@ -206,6 +227,7 @@
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -220,10 +242,11 @@
   <div class="hi">
     <div class="htag">Open to opportunities</div>
     <h1 class="hh">Satyam<br><span class="c">Kannojia</span></h1>
-    <div class="hrole">DevOps Engineer<span class="sep">|</span>Cloud Infrastructure<span class="sep">|</span>CI/CD Specialist</div>
-    <p class="hdesc">Automating pipelines, orchestrating containers, and building resilient cloud infrastructure — from commit to production.</p>
+    <div class="hrole">DevOps Engineer<span class="sep">|</span>Cloud Infrastructure<span class="sep">|</span>Monitoring &amp; Automation</div>
+    <p class="hdesc">I run production infrastructure for 25+ client applications on Linux and Windows servers. I build CI/CD pipelines, monitoring that catches failures before users do, and automation that replaces manual ops work.</p>
     <div class="hctas">
       <a href="#projects" class="btn-c">View Projects</a>
+      <a href="Satyam-Kannojia-Resume.pdf" class="btn-o" target="_blank">Download Résumé</a>
       <a href="#contact" class="btn-o">Get In Touch</a>
     </div>
   </div>
@@ -233,15 +256,15 @@
       <span class="tname">bash — satyam@devbox</span>
     </div>
     <div class="tbody">
-      <span style="display:block"><span class="pr">satyam@devbox:~$</span> <span class="co">kubectl get pods -A</span></span>
-      <span style="display:block" class="ou">web-app&nbsp;&nbsp;&nbsp;&nbsp;1/1&nbsp;&nbsp;<span class="cy">Running</span>&nbsp;&nbsp;✓</span>
-      <span style="display:block" class="ou">api-svc&nbsp;&nbsp;&nbsp;&nbsp;1/1&nbsp;&nbsp;<span class="cy">Running</span>&nbsp;&nbsp;✓</span>
-      <span style="display:block" class="ou">db-master&nbsp;&nbsp;1/1&nbsp;&nbsp;<span class="cy">Running</span>&nbsp;&nbsp;✓</span>
+      <span style="display:block"><span class="pr">satyam@devbox:~$</span> <span class="co">docker compose ps</span></span>
+      <span style="display:block" class="ou">netdata&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cy">Up</span>&nbsp;&nbsp;✓</span>
+      <span style="display:block" class="ou">mon_prometheus&nbsp;<span class="cy">Up</span>&nbsp;&nbsp;✓</span>
+      <span style="display:block" class="ou">mon_grafana&nbsp;&nbsp;&nbsp;&nbsp;<span class="cy">Up</span>&nbsp;&nbsp;✓</span>
       <span style="display:block">&nbsp;</span>
-      <span style="display:block"><span class="pr">satyam@devbox:~$</span> <span class="co">jenkins run pipeline</span></span>
-      <span style="display:block" class="ou">Stage: Build &nbsp;&nbsp;→ <span class="cy">PASSED</span></span>
-      <span style="display:block" class="ou">Stage: Test &nbsp;&nbsp;&nbsp;→ <span class="cy">PASSED</span></span>
-      <span style="display:block" class="ou">Stage: Deploy &nbsp;→ <span class="cy">PASSED</span></span>
+      <span style="display:block"><span class="pr">satyam@devbox:~$</span> <span class="co">python zbx-apply.py all --apply</span></span>
+      <span style="display:block" class="ou">hosts &nbsp;&nbsp;&nbsp;→ <span class="cy">21 linked</span></span>
+      <span style="display:block" class="ou">triggers → <span class="cy">147 created</span></span>
+      <span style="display:block" class="ou">restarts → <span class="cy">0</span></span>
       <span style="display:block">&nbsp;</span>
       <span style="display:block"><span class="pr">satyam@devbox:~$</span> <span class="cursor"></span></span>
     </div>
@@ -251,11 +274,11 @@
 <!-- PIPELINE BAR -->
 <div class="pipeline">
   <div class="ps"><div class="pb on">Git Push</div><div class="pl"></div></div>
-  <div class="ps"><div class="pb on">Jenkins</div><div class="pl"></div></div>
+  <div class="ps"><div class="pb on">GitLab CI / Jenkins</div><div class="pl"></div></div>
   <div class="ps"><div class="pb on">Docker Build</div><div class="pl"></div></div>
-  <div class="ps"><div class="pb on">K8s Deploy</div><div class="pl"></div></div>
-  <div class="ps"><div class="pb on">Nginx Proxy</div><div class="pl"></div></div>
-  <div class="pb on">Monitor</div>
+  <div class="ps"><div class="pb on">Deploy</div><div class="pl"></div></div>
+  <div class="ps"><div class="pb on">Nginx / IIS</div><div class="pl"></div></div>
+  <div class="pb on">Zabbix + Grafana</div>
 </div>
 
 <!-- ABOUT -->
@@ -266,45 +289,117 @@
     <div class="icard reveal">
       <div class="irow"><span class="ilbl">Name</span><span class="ival">Satyam Kannojia</span></div>
       <div class="irow"><span class="ilbl">Role</span><span class="ival">Associate DevOps Engineer</span></div>
-      <div class="irow"><span class="ilbl">Company</span><span class="ival">Dataman Computer PVT. LTD.</span></div>
+      <div class="irow"><span class="ilbl">Company</span><span class="ival">Dataman Computer Systems Pvt. Ltd.</span></div>
       <div class="irow"><span class="ilbl">Education</span><span class="ival">MCA — Chandigarh University</span></div>
       <div class="irow"><span class="ilbl">Based In</span><span class="ival">Kanpur, India</span></div>
       <div class="irow"><span class="ilbl">Email</span><span class="ival">satyamkan17@gmail.com</span></div>
       <div class="irow"><span class="ilbl">Phone</span><span class="ival">+91-9140307219</span></div>
     </div>
     <div class="aprosa reveal">
-      <p>I'm <span class="hl">Satyam Kannojia</span>, working as Associate DevOps Engineer at <span class="hl">Dataman Computer PVT. LTD.</span>, based in Kanpur.</p>
-      <p>I specialize in building automated CI/CD pipelines, containerizing applications with <span class="hl">Docker &amp; Kubernetes</span>, and managing cloud infrastructure on <span class="hl">AWS and Azure</span>.</p>
-      <p>I enjoy turning manual processes into reliable, repeatable workflows — bridging development and operations using <span class="hl">Jenkins, Nginx, and Git</span>.</p>
+      <p>I'm <span class="hl">Satyam Kannojia</span>, an Associate DevOps Engineer at <span class="hl">Dataman Computer Systems</span>. I hold an MCA in Cloud Computing &amp; DevOps.</p>
+      <p>Day to day I keep production running for ERP, healthcare (HMIS) and hospitality apps on Linux and Windows/IIS servers across <span class="hl">AWS, Azure</span> and Indian hosting providers. That means deploying Java, .NET and Python stacks with <span class="hl">Docker</span>, running <span class="hl">GitLab CI and Jenkins</span>, and monitoring everything with <span class="hl">Zabbix, Prometheus and Grafana</span>.</p>
+      <p>When something breaks, I dig through the logs until I find the real cause, then write it up so it doesn't happen again. Repetitive work gets automated with <span class="hl">Python, PowerShell and Bash</span>.</p>
       <p>Outside tech: cricket 🏏, music, and always learning something new.</p>
+    </div>
+  </div>
+  <div class="stats reveal">
+    <div class="stat"><div class="statn">29</div><div class="statl">Servers monitored</div></div>
+    <div class="stat"><div class="statn">9</div><div class="statl">Microservices hosted</div></div>
+    <div class="stat"><div class="statn">48K</div><div class="statl">Log entries analysed</div></div>
+    <div class="stat"><div class="statn">7+</div><div class="statl">Public repos</div></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="eyebrow">02 — Experience</div>
+  <h2 class="sh">Where I<br><span>work</span></h2>
+  <div class="xcard reveal">
+    <div class="xhead">
+      <div>
+        <div class="xrole">Associate DevOps Engineer</div>
+        <div class="xco">Dataman Computer Systems Pvt. Ltd.</div>
+      </div>
+      <span class="xdate">Sep 2025 — Present</span>
+    </div>
+    <div class="xgrid">
+      <div class="xi"><div class="xit">Monitoring</div><div class="xid">Added an agent-independent network layer to <b>Zabbix 7</b> (29 hosts) using a Python API tool with plan/apply/rollback: <b>126 items and 147 triggers, zero restarts</b>. Network outages are now told apart from dead agents.</div></div>
+      <div class="xi"><div class="xit">Observability</div><div class="xid">Built a <b>Netdata + Prometheus + Grafana</b> stack with dashboards and alerts kept as code and email alerts for container PID leaks. Open-sourced it with CI validation.</div></div>
+      <div class="xi"><div class="xit">Microservices</div><div class="xid">Hosted an ERP made of <b>9 Spring Boot microservices</b> (Eureka, Gateway, Redis, PostgreSQL, MongoDB) and React micro-frontends behind Nginx, started in order by systemd. Fixed a 502 outage after a reboot.</div></div>
+      <div class="xi"><div class="xit">Data sync</div><div class="xid">Designed two-way <b>MSSQL ↔ PostgreSQL</b> replication with <b>Kafka (KRaft) and Debezium CDC</b>, including multi-tenant connector templates and loop-prevention checks.</div></div>
+      <div class="xi"><div class="xit">Security</div><div class="xid">Analysed <b>48K IIS error entries</b> and found that 95% of the traffic was bypassing the <b>Cloudflare WAF</b> and that session tokens were leaking in URLs. Delivered a remediation plan.</div></div>
+      <div class="xi"><div class="xit">Automation</div><div class="xid">Replaced daily manual RDP log collection with a <b>PowerShell tool and dashboard</b> that copies over SMB or FTPS with certificate pinning. Also wrote IIS, MSSQL and MongoDB log parsers.</div></div>
+      <div class="xi"><div class="xit">Cloud &amp; cost</div><div class="xid">Prepared <b>AWS and Azure</b> sizing and cost proposals (EC2, RDS for SQL Server, Hyderabad → Mumbai DR) for client deployments.</div></div>
+      <div class="xi"><div class="xit">Operations</div><div class="xid">Run <b>GitLab CI runners</b>, Docker registries, SSL/TLS renewals, Acronis backups, VPN access and Apache Superset. Also self-host n8n and LiteLLM behind Cloudflare Tunnel.</div></div>
     </div>
   </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-  <div class="eyebrow">02 — Skills</div>
+  <div class="eyebrow">03 — Skills</div>
   <h2 class="sh">Technical<br><span>expertise</span></h2>
   <div class="sgrid">
     <div class="sg reveal">
-      <div class="sgtitle">DevOps &amp; Cloud ⚡</div>
+      <div class="sgtitle">CI/CD &amp; Containers ⚡</div>
       <div class="tags">
-        <span class="tag hot">Kubernetes</span>
         <span class="tag hot">Docker</span>
+        <span class="tag hot">Docker Compose</span>
+        <span class="tag hot">GitLab CI/CD</span>
         <span class="tag hot">Jenkins</span>
-        <span class="tag hot">CI/CD</span>
-        <span class="tag hot">AWS</span>
-        <span class="tag hot">Azure</span>
-        <span class="tag hot">Nginx</span>
-        <span class="tag hot">Git / GitHub</span>
-        <span class="tag hot">Linux / Bash</span>
+        <span class="tag">GitHub Actions</span>
+        <span class="tag">Kubernetes (Minikube)</span>
+        <span class="tag">Ansible</span>
+        <span class="tag">Vagrant</span>
+        <span class="tag">Git</span>
       </div>
     </div>
     <div class="sg reveal">
-      <div class="sgtitle">Languages</div>
+      <div class="sgtitle">Monitoring &amp; Observability ⚡</div>
       <div class="tags">
-        <span class="tag">JavaScript</span>
-        <span class="tag">C++</span>
+        <span class="tag hot">Zabbix 7</span>
+        <span class="tag hot">Prometheus</span>
+        <span class="tag hot">Grafana</span>
+        <span class="tag">Netdata</span>
+        <span class="tag">node-exporter</span>
+        <span class="tag">Site24x7 APM</span>
+      </div>
+    </div>
+    <div class="sg reveal">
+      <div class="sgtitle">Cloud, Servers &amp; Networking</div>
+      <div class="tags">
+        <span class="tag hot">AWS (EC2, RDS)</span>
+        <span class="tag hot">Azure</span>
+        <span class="tag hot">Linux (Ubuntu)</span>
+        <span class="tag">Windows Server</span>
+        <span class="tag hot">Nginx</span>
+        <span class="tag">IIS</span>
+        <span class="tag">Tomcat</span>
+        <span class="tag">Payara</span>
+        <span class="tag">systemd</span>
+        <span class="tag">SSL/TLS</span>
+        <span class="tag">Cloudflare</span>
+        <span class="tag">VPN</span>
+      </div>
+    </div>
+    <div class="sg reveal">
+      <div class="sgtitle">Data, Scripting &amp; Tools</div>
+      <div class="tags">
+        <span class="tag hot">Kafka</span>
+        <span class="tag hot">Debezium CDC</span>
+        <span class="tag">SymmetricDS</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">Redis</span>
+        <span class="tag">MinIO</span>
+        <span class="tag hot">Bash</span>
+        <span class="tag hot">PowerShell</span>
+        <span class="tag hot">Python</span>
+        <span class="tag">Apache Superset</span>
+        <span class="tag">n8n</span>
+        <span class="tag">LiteLLM</span>
       </div>
     </div>
   </div>
@@ -312,32 +407,44 @@
 
 <!-- SERVICES -->
 <section id="services">
-  <div class="eyebrow">03 — Services</div>
+  <div class="eyebrow">04 — Services</div>
   <h2 class="sh">What I<br><span>offer</span></h2>
   <div class="svcgrid">
     <div class="svc reveal">
       <span class="svcnum">01</span>
-      <span class="svcicon">☁️</span>
-      <div class="svctitle">Cloud Infrastructure</div>
-      <p class="svcdesc">Design and manage scalable cloud environments on AWS and Azure — VPCs, autoscaling, IAM, cost optimization.</p>
+      <span class="svcicon">📈</span>
+      <div class="svctitle">Monitoring &amp; Alerting</div>
+      <p class="svcdesc">Zabbix, Prometheus and Grafana set up as code, with alerts that tell a network failure apart from an app failure so on-call staff know where to look.</p>
     </div>
     <div class="svc reveal">
       <span class="svcnum">02</span>
       <span class="svcicon">🔁</span>
       <div class="svctitle">CI/CD Pipelines</div>
-      <p class="svcdesc">Automated build, test, and deploy pipelines via Jenkins and GitHub Actions for fast, reliable releases.</p>
+      <p class="svcdesc">GitLab CI, Jenkins and GitHub Actions pipelines that test, build images, push to a registry and deploy with no downtime.</p>
     </div>
     <div class="svc reveal">
       <span class="svcnum">03</span>
       <span class="svcicon">🐳</span>
       <div class="svctitle">Containerization</div>
-      <p class="svcdesc">Dockerize applications and orchestrate at scale with Kubernetes for resilience and zero-downtime deploys.</p>
+      <p class="svcdesc">Docker and Compose packaging for Java, .NET, Python and Node apps, from Spring Boot microservices to legacy WAR deployments.</p>
     </div>
     <div class="svc reveal">
       <span class="svcnum">04</span>
-      <span class="svcicon">⚙️</span>
-      <div class="svctitle">Server &amp; Nginx Config</div>
-      <p class="svcdesc">Configure Nginx as reverse proxy, load balancer, and SSL terminator — performance-tuned for production.</p>
+      <span class="svcicon">☁️</span>
+      <div class="svctitle">Cloud Sizing &amp; DR</div>
+      <p class="svcdesc">AWS and Azure architecture and cost proposals, cross-region disaster recovery, and backup strategies tested against measured RPO/RTO.</p>
+    </div>
+    <div class="svc reveal">
+      <span class="svcnum">05</span>
+      <span class="svcicon">🔄</span>
+      <div class="svctitle">Data Replication</div>
+      <p class="svcdesc">Change-data-capture pipelines with Kafka and Debezium to keep SQL Server and PostgreSQL in sync, in one or both directions.</p>
+    </div>
+    <div class="svc reveal">
+      <span class="svcnum">06</span>
+      <span class="svcicon">🛡️</span>
+      <div class="svctitle">Servers, Proxy &amp; Security</div>
+      <p class="svcdesc">Nginx and IIS configuration, SSL/TLS, Cloudflare setup and log forensics that find exposed origins, leaked tokens and misconfigurations.</p>
     </div>
   </div>
 </section>
@@ -348,51 +455,234 @@
   To add a new project: duplicate a .pcard div and update the content.
 ══════════════════════════════════════ -->
 <section id="projects">
-  <div class="eyebrow">04 — Projects</div>
+  <div class="eyebrow">05 — Projects</div>
   <h2 class="sh">DevOps<br><span>Projects</span></h2>
   <div class="pgrid">
 
-    <!-- PROJECT 1 -->
     <div class="pcard reveal">
       <div class="pchead">
-        <div class="pctitle">CI/CD Pipeline Setup</div>
-        <div class="pcbadge">DevOps</div>
+        <div class="pctitle">Container Monitoring Stack</div>
+        <div class="pcbadge">Observability</div>
       </div>
       <div class="pcbody">
-        <p class="pcdesc">Automated Jenkins pipeline — build, test, Dockerize and deploy to Kubernetes with Nginx ingress and rollback support.</p>
+        <p class="pcdesc">A monitoring stack you can deploy in one command: Netdata, Prometheus, node-exporter and Grafana, with a provisioned dashboard and an email alert for container PID leaks. Uses Netdata because cAdvisor reports nothing under Docker 25+'s containerd snapshotter. CI validates every config change.</p>
         <div class="pctags">
-          <span class="pctag">Jenkins</span>
-          <span class="pctag">Docker</span>
-          <span class="pctag">Kubernetes</span>
-          <span class="pctag">Nginx</span>
-          <span class="pctag">GitHub</span>
+          <span class="pctag">Prometheus</span>
+          <span class="pctag">Grafana</span>
+          <span class="pctag">Netdata</span>
+          <span class="pctag">Docker Compose</span>
+          <span class="pctag">GitHub Actions</span>
         </div>
       </div>
       <div class="pcfoot">
-        <span class="pcdate">Feb 2024</span>
-        <!-- <a class="pclink" href="YOUR_LINK_HERE" target="_blank">View →</a> -->
+        <span class="pcdate">Sep 2026</span>
+        <a class="pclink" href="https://github.com/Satyamkan10/container-monitoring" target="_blank">View on GitHub →</a>
       </div>
     </div>
 
-    <!-- PROJECT 2 -->
     <div class="pcard reveal">
       <div class="pchead">
-        <div class="pctitle">AWS Cloud Infrastructure</div>
-        <div class="pcbadge">Cloud</div>
+        <div class="pctitle">Zabbix Network Monitoring</div>
+        <div class="pcbadge">Monitoring</div>
       </div>
       <div class="pcbody">
-        <p class="pcdesc">Designed multi-AZ architecture on AWS with EC2, RDS, S3 and autoscaling groups behind an Application Load Balancer.</p>
+        <p class="pcdesc">A Python Zabbix API tool with plan, apply, verify and rollback modes. It added an ICMP network layer to 21 production hosts (126 items, 147 triggers) with no service restarts. Agent-down alerts now depend on network health, so a dead agent is no longer mistaken for a dead host.</p>
         <div class="pctags">
-          <span class="pctag">AWS</span>
-          <span class="pctag">EC2</span>
-          <span class="pctag">RDS</span>
-          <span class="pctag">S3</span>
-          <span class="pctag">ALB</span>
+          <span class="pctag">Zabbix 7</span>
+          <span class="pctag">Python</span>
+          <span class="pctag">Zabbix API</span>
+          <span class="pctag">ICMP</span>
         </div>
       </div>
       <div class="pcfoot">
-        <span class="pcdate">May 2024</span>
-        <!-- <a class="pclink" href="YOUR_LINK_HERE" target="_blank">View →</a> -->
+        <span class="pcdate">Nov 2026</span>
+        <span class="pcdate">Work project · code private</span>
+      </div>
+    </div>
+
+    <div class="pcard reveal">
+      <div class="pchead">
+        <div class="pctitle">DR Lab: Disaster-Recovery Harness</div>
+        <div class="pcbadge">Reliability</div>
+      </div>
+      <div class="pcbody">
+        <p class="pcdesc">An active/standby Spring Boot pair writes SHA-256-checksummed heartbeat records to SQL Server, MongoDB and MinIO behind Nginx. A CLI injects failures and measures real RPO and RTO, then checks that all three stores still agree.</p>
+        <div class="pctags">
+          <span class="pctag">Spring Boot</span>
+          <span class="pctag">SQL Server</span>
+          <span class="pctag">MongoDB</span>
+          <span class="pctag">MinIO</span>
+          <span class="pctag">Nginx</span>
+          <span class="pctag">Docker</span>
+        </div>
+      </div>
+      <div class="pcfoot">
+        <span class="pcdate">2026</span>
+        <span class="pcdate">Work project · code private</span>
+      </div>
+    </div>
+
+    <div class="pcard reveal">
+      <div class="pchead">
+        <div class="pctitle">Kafka CDC: MSSQL ↔ PostgreSQL</div>
+        <div class="pcbadge">Data</div>
+      </div>
+      <div class="pcbody">
+        <p class="pcdesc">Two-way, near-real-time replication between SQL Server and PostgreSQL using Kafka in KRaft mode with Debezium source and JDBC sink connectors. Includes multi-tenant connector templates, systemd services and loop-prevention checks.</p>
+        <div class="pctags">
+          <span class="pctag">Kafka</span>
+          <span class="pctag">Debezium</span>
+          <span class="pctag">SQL Server</span>
+          <span class="pctag">PostgreSQL</span>
+          <span class="pctag">systemd</span>
+        </div>
+      </div>
+      <div class="pcfoot">
+        <span class="pcdate">2026</span>
+        <span class="pcdate">Work project · code private</span>
+      </div>
+    </div>
+
+    <div class="pcard reveal">
+      <div class="pchead">
+        <div class="pctitle">ClinIQ: Clinical Decision Support</div>
+        <div class="pcbadge">Full-stack Ops</div>
+      </div>
+      <div class="pcbody">
+        <p class="pcdesc">A containerized Flask CDSS with 27 JWT-secured REST endpoints, bcrypt, CSRF protection, rate limiting and Gunicorn behind Nginx. ETL scripts load 250K+ Indian medicines and 74K+ ICD-10 codes. Deploys with one command.</p>
+        <div class="pctags">
+          <span class="pctag">Flask</span>
+          <span class="pctag">MySQL</span>
+          <span class="pctag">Redis</span>
+          <span class="pctag">Nginx</span>
+          <span class="pctag">Docker</span>
+          <span class="pctag">OpenAI</span>
+        </div>
+      </div>
+      <div class="pcfoot">
+        <span class="pcdate">Jun 2026</span>
+        <span class="pcdate">Work project · code private</span>
+      </div>
+    </div>
+
+    <div class="pcard reveal">
+      <div class="pchead">
+        <div class="pctitle">Zero-Downtime CI/CD to AWS</div>
+        <div class="pcbadge">CI/CD</div>
+      </div>
+      <div class="pcbody">
+        <p class="pcdesc">A Jenkins pipeline that builds a versioned image on EC2, health-checks a temporary container, then switches Nginx to the new release and retires the old container, so users never see downtime.</p>
+        <div class="pctags">
+          <span class="pctag">Jenkins</span>
+          <span class="pctag">Docker</span>
+          <span class="pctag">AWS EC2</span>
+          <span class="pctag">Nginx</span>
+        </div>
+      </div>
+      <div class="pcfoot">
+        <span class="pcdate">Mar 2026</span>
+        <a class="pclink" href="https://github.com/Satyamkan10/optimize-ci-cd" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+
+    <div class="pcard reveal">
+      <div class="pchead">
+        <div class="pctitle">Flask CI/CD Pipeline</div>
+        <div class="pcbadge">CI/CD</div>
+      </div>
+      <div class="pcbody">
+        <p class="pcdesc">A Jenkins pipeline that runs pytest, builds a Docker image, pushes it to Docker Hub using stored credentials, and deploys the container.</p>
+        <div class="pctags">
+          <span class="pctag">Jenkins</span>
+          <span class="pctag">pytest</span>
+          <span class="pctag">Docker Hub</span>
+          <span class="pctag">Python</span>
+        </div>
+      </div>
+      <div class="pcfoot">
+        <span class="pcdate">Mar 2026</span>
+        <a class="pclink" href="https://github.com/Satyamkan10/CI-CD-for-flask-app" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+
+    <div class="pcard reveal">
+      <div class="pchead">
+        <div class="pctitle">Self-Hosted n8n</div>
+        <div class="pcbadge">Automation</div>
+      </div>
+      <div class="pcbody">
+        <p class="pcdesc">A production Docker Compose setup for the n8n workflow automation platform with persistent storage.</p>
+        <div class="pctags">
+          <span class="pctag">n8n</span>
+          <span class="pctag">Docker Compose</span>
+          <span class="pctag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="pcfoot">
+        <span class="pcdate">Mar 2026</span>
+        <a class="pclink" href="https://github.com/Satyamkan10/n8n-Self-Hosting" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+
+    <div class="pcard reveal">
+      <div class="pchead">
+        <div class="pctitle">MERN App on Kubernetes</div>
+        <div class="pcbadge">Kubernetes</div>
+      </div>
+      <div class="pcbody">
+        <p class="pcdesc">A multi-container MERN app deployed on Kubernetes (Minikube) with Deployment and Service manifests, built by a Jenkins CI pipeline.</p>
+        <div class="pctags">
+          <span class="pctag">Kubernetes</span>
+          <span class="pctag">Jenkins</span>
+          <span class="pctag">Docker</span>
+          <span class="pctag">MongoDB</span>
+          <span class="pctag">React</span>
+        </div>
+      </div>
+      <div class="pcfoot">
+        <span class="pcdate">Jan 2026</span>
+        <a class="pclink" href="https://github.com/Satyamkan10/mern-app" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+
+    <div class="pcard reveal">
+      <div class="pchead">
+        <div class="pctitle">Multi-Tier App Provisioning</div>
+        <div class="pcbadge">IaC</div>
+      </div>
+      <div class="pcbody">
+        <p class="pcdesc">Automated provisioning with Vagrant of a five-tier stack (Nginx, Tomcat, MySQL, Memcached, RabbitMQ) using shell scripts. Works on Windows and Intel Macs.</p>
+        <div class="pctags">
+          <span class="pctag">Vagrant</span>
+          <span class="pctag">Bash</span>
+          <span class="pctag">Tomcat</span>
+          <span class="pctag">RabbitMQ</span>
+          <span class="pctag">MySQL</span>
+        </div>
+      </div>
+      <div class="pcfoot">
+        <span class="pcdate">Jan 2026</span>
+        <a class="pclink" href="https://github.com/Satyamkan10/Blog_app_with_Automation" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+
+    <div class="pcard reveal">
+      <div class="pchead">
+        <div class="pctitle">Chat App on Kubernetes</div>
+        <div class="pcbadge">Kubernetes</div>
+      </div>
+      <div class="pcbody">
+        <p class="pcdesc">A real-time chat app containerized and deployed to Kubernetes, with an Nginx reverse proxy and ops manifests.</p>
+        <div class="pctags">
+          <span class="pctag">Kubernetes</span>
+          <span class="pctag">Docker</span>
+          <span class="pctag">Nginx</span>
+          <span class="pctag">Node.js</span>
+        </div>
+      </div>
+      <div class="pcfoot">
+        <span class="pcdate">Dec 2025</span>
+        <a class="pclink" href="https://github.com/Satyamkan10/Chat-app-with-K8s-deployment" target="_blank">View on GitHub →</a>
       </div>
     </div>
 
@@ -421,7 +711,7 @@
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="eyebrow">05 — Contact</div>
+  <div class="eyebrow">06 — Contact</div>
   <h2 class="sh">Get in<br><span>touch</span></h2>
   <div class="cgrid">
 
@@ -503,7 +793,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <span>&copy; 2025 <a href="#">Satyam Kannojia</a>. All rights reserved.</span>
+  <span>&copy; 2026 <a href="#">Satyam Kannojia</a>. All rights reserved.</span>
   <span>Built with ❤️ &amp; Linux</span>
 </footer>
 
